@@ -182,6 +182,7 @@ func (server *ChatServer) processCommand(m MsgInfo) {
 				user.updateNickname(newNick)
 				log.Println("uid:", user.uid, "changed nickname to", user.nickname)
 			} else {
+				user.swriteln("Nickname not changed because the password was not correct.")
 				log.Println("uid:", user.uid, "nickname not changed. invalid password.")
 			}
 		} else {
